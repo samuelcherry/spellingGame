@@ -1,0 +1,187 @@
+/* App.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Courier New", Courier, monospace;
+  background: #101820;
+  color: #d8f3dc;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Main game area */
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+
+/* Retro computer / classroom panel */
+.mainContainer::before {
+  content: "SPELLING PRACTICE";
+  position: absolute;
+  top: 40px;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #8ac926;
+}
+
+/* Input */
+input {
+  width: min(400px, 80vw);
+  padding: 18px 20px;
+
+  background: #071014;
+  color: #f8f32b;
+
+  border: 3px solid #31572c;
+  border-radius: 4px;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 2px;
+
+  outline: none;
+
+  box-shadow:
+    0 0 0 3px #071014,
+    0 0 0 5px #31572c;
+
+  transition: 0.15s ease;
+}
+
+input:focus {
+  border-color: #8ac926;
+  box-shadow:
+    0 0 0 3px #071014,
+    0 0 0 5px #8ac926;
+}
+
+input::placeholder {
+  color: #31572c;
+}
+
+/* Buttons */
+button {
+  min-width: 180px;
+  padding: 14px 24px;
+
+  background: #31572c;
+  color: #f8f32b;
+
+  border: 3px solid #8ac926;
+  border-radius: 3px;
+
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  box-shadow: 4px 4px 0 #071014;
+
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    background 0.1s ease;
+}
+
+button:hover {
+  background: #386641;
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #071014;
+}
+
+/* New word button */
+.mainContainer > div {
+  display: flex;
+  justify-content: center;
+}
+
+/* Result */
+h1 {
+  min-width: 300px;
+  margin: 15px 0 0;
+
+  padding: 20px;
+
+  background: #071014;
+
+  border: 3px solid #31572c;
+  border-radius: 4px;
+
+  color: #8ac926;
+
+  font-size: 32px;
+  text-align: center;
+  letter-spacing: 5px;
+
+  box-shadow:
+    0 0 0 3px #071014,
+    0 0 0 5px #31572c;
+}
+
+/* Give the result some educational-computer flavor */
+h1::before {
+  content: "> ";
+  color: #f8f32b;
+}
+
+/* Subtle CRT effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+
+  z-index: 100;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .mainContainer {
+    gap: 16px;
+    padding: 20px;
+  }
+
+  input {
+    font-size: 22px;
+    padding: 15px;
+  }
+
+  button {
+    width: 80vw;
+    max-width: 300px;
+    font-size: 16px;
+  }
+
+  h1 {
+    min-width: 80vw;
+    font-size: 25px;
+  }
+}
